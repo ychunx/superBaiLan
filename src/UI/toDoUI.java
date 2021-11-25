@@ -1,9 +1,17 @@
 package UI;
 
+import Main.toDo;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.util.HashMap;
+import java.util.Map;
 
 public class toDoUI {
+
+    static String[] list = toDo.read();
+    static JPanel List = new JPanel();
 
     public static JPanel init(){
 
@@ -13,22 +21,55 @@ public class toDoUI {
 
         //标题logo
         JLabel title = new JLabel("NotePad");
-        title.setFont(new java.awt.Font("黑体",1,30));
+        title.setFont(new java.awt.Font("黑体",1,40));
         title.setForeground(new Color(32,191,107));
-        title.setBounds(20,20,1070,30);
+        title.setBounds(20,20,1070,40);
         jp.add(title);
 
         //事项输入框
         JPanel inText = new JPanel();
         inText.setLayout(null);
-        inText.setBounds(0,60,1080,50);
+        inText.setBounds(0,70,1080,30);
 
         JTextArea inJA = new JTextArea();
-        inJA.setBounds(20,0,800,50);
+        inJA.setBounds(20,0,880,30);
+        inJA.setFont(new java.awt.Font("Dilog",1,20));
 
-        JButton inB = new JButton("添加");
-        inB.setBounds(900,1,100,48);
+        JButton inB = new JButton("添加事项");
+        inB.setBounds(900,0,100,30);
         inB.setBackground(new Color(202,204,209));
+
+        inB.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                String one = inJA.getText();
+                int num = list.length + 1;
+                toDo.add(one + "\n");
+                inJA.setText("");
+                list = toDo.read();
+                init();
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        });
 
         inText.add(inJA);
         inText.add(inB);
@@ -40,12 +81,14 @@ public class toDoUI {
         sList.setBounds(0,120,1080,470);
         jp.add(sList);
 
-        JPanel List = new JPanel();
+        //JPanel List = new JPanel();
         List.setLayout(null);
         List.setBounds(0,0,1080,470);
         sList.add(List);
 
-        //事项展示内框1
+        //事项展示内框
+        setJL();
+        /***
         JPanel List1 = new JPanel();
         List1.setBounds(20,10,1020,40);
         List1.setLayout(null);
@@ -64,26 +107,7 @@ public class toDoUI {
         list1B2.setBackground(new Color(202,204,209));
         List1.add(list1B1);
         List1.add(list1B2);
-
-        //事项展示内框2
-        JPanel List2 = new JPanel();
-        List2.setBounds(20,60,1020,40);
-        List2.setLayout(null);
-        List.add(List2);
-
-        JLabel list2 = new JLabel("2.第二个事项");
-        list2.setBounds(0,0,800,40);
-        list2.setFont(new java.awt.Font("黑体",1,18));
-        List2.add(list2);
-
-        JButton list2B1 = new JButton("完成");
-        JButton list2B2 = new JButton("删除");
-        list2B1.setBounds(860,5,60,30);
-        list2B2.setBounds(940,5,60,30);
-        list2B1.setBackground(new Color(202,204,209));
-        list2B2.setBackground(new Color(202,204,209));
-        List2.add(list2B1);
-        List2.add(list2B2);
+        ***/
 
         //脚部
         JPanel footer = new JPanel();
@@ -91,7 +115,8 @@ public class toDoUI {
         footer.setBounds(0,590,1080,50);
         jp.add(footer);
 
-        JLabel footerLL = new JLabel("总共x项");
+        int l = list.length;
+        JLabel footerLL = new JLabel("总共"+l+"项");
         footerLL.setBounds(20,0,500,50);
         footerLL.setFont(new java.awt.Font("黑体",1,18));
         footer.add(footerLL);
@@ -101,6 +126,86 @@ public class toDoUI {
         footerRB.setBackground(new Color(202,204,209));
         footer.add(footerRB);
 
+        footerRB.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                toDo.clean();
+                init();
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        });
+
         return jp;
+    }
+
+    public static void setJL(){
+
+        List.removeAll();
+
+        for(int i=0;i<list.length;i++){
+            final int num = i;
+
+            JPanel List1 = new JPanel();
+            List1.setBounds(20,10,1020,40);
+            List1.setLayout(null);
+            List.add(List1);
+
+            JLabel list1 = new JLabel((i+1) + "." + list[i]);
+            list1.setBounds(0,0,800,40);
+            list1.setFont(new java.awt.Font("黑体",1,18));
+            List1.add(list1);
+
+            JButton list1B = new JButton("删除");
+            list1B.setBounds(900,5,60,30);
+            list1B.setBackground(new Color(202,204,209));
+            List1.add(list1B);
+
+            list1B.addMouseListener(new MouseListener() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    toDo.delete(num,list);
+                    init();
+                }
+
+                @Override
+                public void mousePressed(MouseEvent e) {
+
+                }
+
+                @Override
+                public void mouseReleased(MouseEvent e) {
+
+                }
+
+                @Override
+                public void mouseEntered(MouseEvent e) {
+
+                }
+
+                @Override
+                public void mouseExited(MouseEvent e) {
+
+                }
+            });
+        }
     }
 }

@@ -1,13 +1,71 @@
 package Main;
 
+import java.io.*;
 import java.util.ArrayList;
+import UI.toDoUI;
 
-public class toDo {
+public class toDo{
 
-    public static void main(String[] args) {
+    private static String filename = "toDo.txt";
 
-        ArrayList<String> thingList = new ArrayList<String>();
+    public static void write(String data,boolean mode) {
+        try {
+            FileWriter fw = new FileWriter(filename,mode);
+            BufferedWriter bw = new BufferedWriter(fw);
+            bw.write(data);
+            bw.close();
+            fw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
+    public static String[] read() {
+        FileReader fr;
+        String line = "";
+        ArrayList listArr = new ArrayList();
+        try {
+            fr = new FileReader(filename);
+            BufferedReader br = new BufferedReader(fr);
+            while((line = br.readLine()) != null) {
+                listArr.add(line + "\n");
+            }
+            br.close();
+            fr.close();
+        } catch (Exception e) {
+            //查询异常可能是路径不存在，所以直接新创一个数据文件
+            File file = new File(filename);
+            try {
+                file.createNewFile();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }
 
+        String[] r = new String[listArr.size()];
+        for (int i=0;i<listArr.size();i++){
+            r[i] = listArr.get(i).toString();
+        }
+        return r;
+    }
+
+    public static void add(String data){ write(data,true); }
+    public static void clean(){ write("",false); }
+    public static void delete(int num,String[] list){
+        int j = 0;
+        String[] temp = new String[list.length-1];
+        for(int i=0;i< list.length;i++){
+            if(i == num){
+                continue;
+            }
+            temp[j++] = list[i];
+        }
+        list = temp;
+
+        clean();
+
+        for (String s : list){
+            add(s);
+        }
     }
 }
