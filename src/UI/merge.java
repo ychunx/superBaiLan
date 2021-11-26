@@ -7,6 +7,7 @@ import javax.swing.tree.DefaultMutableTreeNode;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import Main.CalendarApp.*;
 
 public class merge {
 
@@ -17,7 +18,7 @@ public class merge {
     Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 
     JFrame jf = new JFrame("团队作业");      //总窗口
-    static JSplitPane jsp = new JSplitPane();   //分割面板
+    public static JSplitPane jsp = new JSplitPane();   //分割面板
 
     //初始化组装视图
     public void init(){
@@ -48,11 +49,9 @@ public class merge {
 
         //左侧内容
         DefaultMutableTreeNode root = new DefaultMutableTreeNode("团队作业");
-        DefaultMutableTreeNode notePad = new DefaultMutableTreeNode("记事本");
-        DefaultMutableTreeNode note = new DefaultMutableTreeNode("错题本");
+        DefaultMutableTreeNode note = new DefaultMutableTreeNode("记事本");
         DefaultMutableTreeNode toDo = new DefaultMutableTreeNode("待办");
         DefaultMutableTreeNode tally = new DefaultMutableTreeNode("记账本");
-        root.add(notePad);
         root.add(note);
         root.add(toDo);
         root.add(tally);
@@ -65,15 +64,11 @@ public class merge {
             public void valueChanged(TreeSelectionEvent e) {
                 Object path = e.getNewLeadSelectionPath().getLastPathComponent();
 
-                if(notePad.equals(path)){
+                if(note.equals(path)){
 
-                    //记事本
-                    jsp.setRightComponent(new JLabel("记事本"));
-                    jsp.setDividerLocation(120);
-                } else if(note.equals(path)){
-
-                    //错题本
-                    jsp.setRightComponent(new JLabel("错题本"));
+                    //日记本
+                    JPanel jp = Calendar.init();
+                    jsp.setRightComponent(jp);
                     jsp.setDividerLocation(120);
                 } else if(toDo.equals(path)){
 
