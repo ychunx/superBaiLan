@@ -13,6 +13,8 @@ public class toDo{
             FileWriter fw = new FileWriter(filename,mode);
             BufferedWriter bw = new BufferedWriter(fw);
             bw.write(data);
+            bw.flush();
+            fw.flush();
             bw.close();
             fw.close();
         } catch (IOException e) {

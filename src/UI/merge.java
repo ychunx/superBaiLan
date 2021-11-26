@@ -16,6 +16,9 @@ public class merge {
     Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     JFrame jf = new JFrame("团队作业");
 
+    //分割面板
+    static JSplitPane jsp = new JSplitPane();
+
     //组装视图
     public void init(){
 
@@ -38,8 +41,7 @@ public class merge {
         jmb.add(jm);
         jf.setJMenuBar(jmb);
 
-        //分割面板
-        JSplitPane jsp = new JSplitPane();
+
 
         //连续布局
         jsp.setContinuousLayout(true);

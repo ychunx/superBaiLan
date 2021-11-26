@@ -15,6 +15,9 @@ public class toDoUI {
 
     public static JPanel init(){
 
+
+        list = toDo.read();
+
         //待办
         JPanel jp = new JPanel();
         jp.setLayout(null);
@@ -46,7 +49,6 @@ public class toDoUI {
                 int num = list.length + 1;
                 toDo.add(one + "\n");
                 inJA.setText("");
-                list = toDo.read();
                 init();
             }
 
@@ -154,6 +156,9 @@ public class toDoUI {
             }
         });
 
+        merge.jsp.setRightComponent(jp);
+        merge.jsp.setDividerLocation(120);
+
         return jp;
     }
 
@@ -164,20 +169,21 @@ public class toDoUI {
         for(int i=0;i<list.length;i++){
             final int num = i;
 
-            JPanel List1 = new JPanel();
-            List1.setBounds(20,10,1020,40);
-            List1.setLayout(null);
-            List.add(List1);
+            JPanel[] jp = new JPanel[list.length];
+            jp[i] = new JPanel();
+            jp[i].setBounds(20,(10+(i*40)),1020,40);
+            jp[i].setLayout(null);
+            List.add(jp[i]);
 
             JLabel list1 = new JLabel((i+1) + "." + list[i]);
             list1.setBounds(0,0,800,40);
-            list1.setFont(new java.awt.Font("黑体",1,18));
-            List1.add(list1);
+            list1.setFont(new Font("黑体",1,18));
+            jp[i].add(list1);
 
             JButton list1B = new JButton("删除");
             list1B.setBounds(900,5,60,30);
             list1B.setBackground(new Color(202,204,209));
-            List1.add(list1B);
+            jp[i].add(list1B);
 
             list1B.addMouseListener(new MouseListener() {
                 @Override
