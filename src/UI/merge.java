@@ -13,41 +13,37 @@ public class merge {
     //窗口属性
     final int WIDTH = 1200;
     final int HEIGHT = 700;
+    //获取屏幕大小
     Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-    JFrame jf = new JFrame("团队作业");
 
-    //分割面板
-    static JSplitPane jsp = new JSplitPane();
+    JFrame jf = new JFrame("团队作业");      //总窗口
+    static JSplitPane jsp = new JSplitPane();   //分割面板
 
-    //组装视图
+    //初始化组装视图
     public void init(){
 
+        //设置窗口居中
         jf.setBounds((int)(screenSize.getWidth()-WIDTH)/2,(int)(screenSize.getHeight()-HEIGHT)/2,WIDTH,HEIGHT);
-        jf.setIconImage(new ImageIcon("src/image/note.png").getImage());
+        jf.setIconImage(new ImageIcon("src/image/note.png").getImage());    //设置icon
 
         //菜单栏
         JMenuBar jmb = new JMenuBar();
         JMenu jm = new JMenu("设置");
         JMenuItem jm1 = new JMenuItem("退出程序");
-
         jm1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.exit(0);
             }
         });
-
         jm.add(jm1);
         jmb.add(jm);
         jf.setJMenuBar(jmb);
-
-
 
         //连续布局
         jsp.setContinuousLayout(true);
         jsp.setDividerLocation(120);
         jsp.setDividerSize(7);
-
         jf.add(jsp);
 
         //左侧内容
@@ -61,7 +57,6 @@ public class merge {
         root.add(toDo);
         root.add(tally);
         JTree tree = new JTree(root);
-
         jsp.setLeftComponent(tree);
 
         //设置页面
@@ -89,7 +84,8 @@ public class merge {
                 } else if(tally.equals(path)){
 
                     //记账本
-                    jsp.setRightComponent(new JLabel("记账本"));
+                    JSplitPane jp = tallyUI.init();
+                    jsp.setRightComponent(jp);
                     jsp.setDividerLocation(120);
                 }
             }
@@ -102,7 +98,6 @@ public class merge {
     }
 
     public static void main(String[] args){
-
         try {
             new merge().init();
         }catch (Exception e){
