@@ -50,7 +50,7 @@ public class toDoUI {
             public void keyPressed(KeyEvent e) {
 
                     int keyCode = e.getKeyCode();
-                if(e.getKeyChar() == KeyEvent.VK_ENTER && e.isControlDown() ) {
+                if(e.getKeyChar() == KeyEvent.VK_ENTER && e.isControlDown() ||e.getKeyChar() == KeyEvent.VK_ENTER) {
                         String one = inJA.getText();    //获取用户输入内容
                         if(!one.equals("")){            //当用户没输入时点击添加按钮无效
                             int num = list.length + 1;      //计算当前已存在事项+1得该事项序号

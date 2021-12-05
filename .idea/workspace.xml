@@ -20,8 +20,8 @@
       <list>
         <option value="Arquillian JUnit Test Class" />
         <option value="Tag Library Descriptor" />
-        <option value="Class" />
         <option value="XML file" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -138,6 +138,8 @@
       <updated>1637933540099</updated>
       <workItem from="1637933543001" duration="9921000" />
       <workItem from="1637994961325" duration="2439000" />
+      <workItem from="1638699686880" duration="6064000" />
+      <workItem from="1638715312114" duration="12000" />
     </task>
     <servers />
   </component>
@@ -149,6 +151,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="211" y="86" width="814" height="668" key="#Project_Structure/0.0.1536.824@0.0.1536.824" timestamp="1637943235570" />
+    <state x="444" y="221" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1638709513121">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="444" y="221" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1638709513121" />
     <state x="574" y="121" key="#com.intellij.ide.util.MemberChooser" timestamp="1637943764723">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -161,22 +167,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="553" y="279" width="429" height="271" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.824@0.0.1536.824" timestamp="1637935020183" />
-    <state width="1493" height="261" key="GridCell.Tab.0.bottom" timestamp="1637945919948">
+    <state width="1493" height="208" key="GridCell.Tab.0.bottom" timestamp="1638715255438">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1637945919948" />
-    <state width="1493" height="261" key="GridCell.Tab.0.center" timestamp="1637945919948">
+    <state width="1493" height="208" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1638715255438" />
+    <state width="1493" height="208" key="GridCell.Tab.0.center" timestamp="1638715255438">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1637945919948" />
-    <state width="1493" height="261" key="GridCell.Tab.0.left" timestamp="1637945919948">
+    <state width="1493" height="208" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1638715255438" />
+    <state width="1493" height="208" key="GridCell.Tab.0.left" timestamp="1638715255438">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1637945919948" />
-    <state width="1493" height="261" key="GridCell.Tab.0.right" timestamp="1637945919948">
+    <state width="1493" height="208" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1638715255438" />
+    <state width="1493" height="208" key="GridCell.Tab.0.right" timestamp="1638715255438">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1637945919948" />
+    <state width="1493" height="208" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1638715255438" />
     <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1637945919949">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

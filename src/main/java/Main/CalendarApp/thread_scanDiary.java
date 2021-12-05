@@ -154,7 +154,7 @@ public class thread_scanDiary extends JFrame implements Runnable {
                 if(jtable.getSelectedRow()>=0)
                 {
                     int index=jtable.getSelectedRow();
-                    String filename="C:/Calendar/Diary/"+Diary[index].getName();
+                    String filename="./Diary/"+Diary[index].getName();
                     File file=new File(filename);
                     int option= JOptionPane.showConfirmDialog(null, "你确定要删除日记吗"+Diary[index].getName()+"？");
                     if(option== JOptionPane.YES_OPTION)
